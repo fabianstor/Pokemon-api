@@ -63,7 +63,7 @@ function App() {
       >
         {pokemons.filter((pokemon) => {
           const index = pokemonsDetails.findIndex((detail) => detail.url === pokemon.url)
-          return filterType.length === 0 ? true : filterType.some((filter) => filter.includes(pokemonsDetails[index]?.types?.find((type) => type === filter) ?? 'others'))
+          return filterType.length === 0 ? true : filterType?.some((filter) => filter?.includes(pokemonsDetails[index]?.types?.find((type) => type === filter) ?? 'others'))
           
         })  
           .map((pokemon: IPokemonInit) => {
