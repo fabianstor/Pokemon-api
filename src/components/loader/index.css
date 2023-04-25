@@ -1,7 +1,9 @@
 .container-image {
     width: 100px;
     height: 100px;
-    top: 100;
+    top: 40%;
+    left: 45%;
+    position: absolute;
     animation: rotate 2s linear infinite;
 }
 
