@@ -1,7 +1,7 @@
 import axios from 'axios'
 import PokemonCard from './components/card/PokemonCard'
 import { useContext, useEffect, useState } from 'react'
-import { IPokemon, IPropsPokemon } from './components/card/interfaces.interface'
+import { IPokemon } from './components/card/interfaces.interface'
 import { Button, Row } from 'antd'
 import { CloseCircleOutlined, UnorderedListOutlined } from '@ant-design/icons'
 import Loader from './components/loader/Loader'
