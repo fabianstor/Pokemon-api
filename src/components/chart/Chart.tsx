@@ -29,7 +29,7 @@ function Chart(props: IPropsChart) {
   const handleBarClick = (_e: ChartEvent, elements: ActiveElement[]) => {
     setFilterType((prev: string[]) => {
       const clickedLabel = labels[elements[0]?.index]
-      if (prev.includes(clickedLabel)) {
+      if (prev?.includes(clickedLabel)) {
         return prev
       }
       return [...prev, clickedLabel]
