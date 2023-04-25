@@ -11,11 +11,11 @@ import type { ChartEvent, ActiveElement } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import { IPropsChart } from './interface.interface'
 import { typeColor } from '../../utils/constants'
-import {useContext} from 'react'
+import { useContext } from 'react'
 import { filterContext } from '../../constants/constants'
 
 function Chart(props: IPropsChart) {
-  const {setFilterType} = useContext(filterContext)
+  const { setFilterType } = useContext(filterContext)
 
   ChartJS.register(
     CategoryScale,
@@ -27,8 +27,15 @@ function Chart(props: IPropsChart) {
   )
 
   const handleBarClick = (_e: ChartEvent, elements: ActiveElement[]) => {
-    setFilterType((prev: string[]) => ([...prev, labels[elements[0]?.index]]))
+    setFilterType((prev: string[]) => {
+      const clickedLabel = labels[elements[0]?.index]
+      if (prev.includes(clickedLabel)) {
+        return prev
+      }
+      return [...prev, clickedLabel]
+    })
   }
+
 
   const options = {
     responsive: true,
