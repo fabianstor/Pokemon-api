@@ -9,12 +9,8 @@ import {
   import { Pie } from 'react-chartjs-2'
   import { IPropsChart } from '../chart/interface.interface'
 import { typeColor } from '../../utils/constants'
-import {useContext} from 'react'
-import { filterContext } from '../../constants/constants'
-import type { ChartEvent, ActiveElement } from 'chart.js'
   
   function ChartPie(props: IPropsChart) {
-    const {setFilterType} = useContext(filterContext)
 
     ChartJS.register(
       Title,
@@ -23,10 +19,6 @@ import type { ChartEvent, ActiveElement } from 'chart.js'
       PieController,
       ArcElement,
     )
-
-    const handleBarClick = (_e: ChartEvent, elements: ActiveElement[]) => {
-      setFilterType((prev: string[]) => ([...prev, labels[elements[0].index]]))
-    }
   
     const options = {
       responsive: true,
@@ -38,8 +30,7 @@ import type { ChartEvent, ActiveElement } from 'chart.js'
         legend: {
           position: 'bottom' as const,
         }
-      },
-      onclick: handleBarClick
+      }
     }
   
     const labels = props.pokemonsDetails

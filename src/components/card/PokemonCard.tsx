@@ -27,7 +27,7 @@ function PokemonCard(props: IPropsPokemon) {
     }, [infoPokemon])
 
     return (
-        <div>
+        <div className='card-container'>
             <Card className='card-pokemon' hoverable onClick={handleShow} loading={loading} style={{ background: infoPokemon?.types.length > 1 ? `linear-gradient(to bottom, ${infoPokemon.types.map((type) => typeColor[type]).join(',')})` : typeColor[infoPokemon?.types[0] ?? 'normal'] }}>
                 <Row className='row-card'>
                     <Col className='col-text'>

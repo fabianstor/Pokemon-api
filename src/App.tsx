@@ -48,7 +48,7 @@ function App() {
 
   return (
     <Row>
-      <Button onClick={handleDrawer}><UnorderedListOutlined /></Button>
+      <Button className='btn-drawer' onClick={handleDrawer}><UnorderedListOutlined /></Button>
       {filterType.length > 0 && <Button className='btn-float' onClick={handleFilterType}><CloseCircleOutlined /></Button>}
       <InfiniteScroll
         className='infinit-card-pokemon'
@@ -57,13 +57,13 @@ function App() {
         hasMore={hasMore}
         loader={<Loader />}
       >
-          {pokemons.filter((pokemon) => {
-            const index = pokemonsDetails.findIndex((detail) => detail.url === pokemon.url)
-            return filterType.length === 0 ? true : filterType.includes(pokemonsDetails[index]?.types.join(','))
-          })
-            .map((pokemon: IPokemonInit) => {
-              return <PokemonCard nextUrl={nextUrl} pokemonDetails={pokemonsDetails} handlePokemonDetails={handlePokemonDetails} key={pokemon.url} name={pokemon.name} url={pokemon.url}></PokemonCard>
-            })}
+        {pokemons.filter((pokemon) => {
+          const index = pokemonsDetails.findIndex((detail) => detail.url === pokemon.url)
+          return filterType.length === 0 ? true : filterType.includes(pokemonsDetails[index]?.types.join(','))
+        })
+          .map((pokemon: IPokemonInit) => {
+            return <PokemonCard nextUrl={nextUrl} pokemonDetails={pokemonsDetails} handlePokemonDetails={handlePokemonDetails} key={pokemon.url} name={pokemon.name} url={pokemon.url}></PokemonCard>
+          })}
       </InfiniteScroll>
       <DrawerMenu pokemonsDetails={pokemonsDetails} show={showDrawer} showDrawer={handleDrawer}></DrawerMenu>
     </Row>

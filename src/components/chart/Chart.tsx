@@ -27,7 +27,7 @@ function Chart(props: IPropsChart) {
   )
 
   const handleBarClick = (_e: ChartEvent, elements: ActiveElement[]) => {
-    setFilterType((prev: string[]) => ([...prev, labels[elements[0].index]]))
+    setFilterType((prev: string[]) => ([...prev, labels[elements[0]?.index]]))
   }
 
   const options = {
