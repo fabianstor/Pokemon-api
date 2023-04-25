@@ -1,0 +1,43 @@
+.card-popup {
+    right: 30%;
+}
+
+.col-localization {
+    max-height: 100px;
+    overflow: auto;
+    width: 200px;
+    height: 100px;
+}
+
+.col-localization::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f1f1f1;
+}
+
+.col-localization::-webkit-scrollbar-thumb {
+    background-color: #c5c5c5;
+    border-radius: 5px;
+}
+
+.col-localization::-webkit-scrollbar-thumb:hover {
+    background-color: #a0a0a0;
+}
+
+.row-localization {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.col-image-localization {
+    width: 100px;
+    height: 100px;
+}
+
+@font-face {
+    font-family: 'Pokemon Solid';
+    src: url('../../assets//fonts/PokemonSolidNormal-xyWR.ttf') format('truetype');
+}
+
+.ant-typography {
+    font-family: 'Courier New', Courier, monospace;
+}
